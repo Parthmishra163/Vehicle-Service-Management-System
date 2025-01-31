@@ -35,7 +35,7 @@ const IssueForm = () => {
       const createdIssue = response.data;
 
       setIssueId(createdIssue.id); // Store the created issue ID
-      setSnackbarMessage(`Issue created! Total price: $${createdIssue.total_price}. Redirecting to payment page...`);
+      setSnackbarMessage(`Issue created! Total price: Rs${createdIssue.total_price}. Redirecting to payment page...`);
       setSnackbarSeverity('success');
       setSnackbarOpen(true);
     } catch (error) {
