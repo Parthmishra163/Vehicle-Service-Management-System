@@ -1,0 +1,140 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #f0f4f8, #dfe9f3);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  background: #4a90e2;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+}
+
+.navbar a {
+  margin: 0 20px;
+  padding: 5px 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+  background: #3f7bcd;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+  overflow-y: auto;
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.dashboard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== TYPOGRAPHY ===== */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+/* ===== TIMEFRAME SELECTOR ===== */
+.timeframe-selector {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.timeframe-selector button {
+  padding: 10px 20px;
+  background: #f8f8f8;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.timeframe-selector button:hover {
+  background: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+.timeframe-selector button.active {
+  background: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+}
+
+.timeframe-selector button:focus {
+  outline: none;
+}
+
+/* ===== CHART CONTAINER ===== */
+.chart-container {
+  width: 80%;
+  height: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== ERROR MESSAGE ===== */
+.error {
+  padding: 20px;
+  margin: 20px 0;
+  background: #f44336;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+}
