@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';  // Importing useState, useEffect from React
-import { useParams, useNavigate } from 'react-router-dom';  // Importing useParams and useNavigate for navigation and parameter handling
-import axios from 'axios';  // Importing axios for API calls
-import { Snackbar, Alert } from '@mui/material';  // Importing Snackbar and Alert from Material-UI for displaying messages
-
+import React, { useState, useEffect } from 'react';  
+import { useParams, useNavigate } from 'react-router-dom';  
+import axios from 'axios';  
+import { Snackbar, Alert } from '@mui/material';  
 import { useLocation } from 'react-router-dom';
 
 function Payment() {
   const { issueId } = useParams();
-  const location = useLocation(); // Use location to get state
-  const [total, setTotal] = useState(location.state?.totalPrice || null); // Set total from state or fetch
+  const location = useLocation(); 
+  const [total, setTotal] = useState(location.state?.totalPrice || null); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false); 
@@ -19,7 +18,6 @@ function Payment() {
   };
 
   useEffect(() => {
-    // If no total from state, fetch it
     if (!total) {
       const fetchTotal = async () => {
         try {
@@ -46,7 +44,7 @@ function Payment() {
 
       fetchTotal();
     } else {
-      setLoading(false); // If total is passed in, no need to fetch
+      setLoading(false);
     }
   }, [issueId, total]);
 
@@ -72,14 +70,14 @@ function Payment() {
   };
 
   if (loading) return <div>Loading payment details...</div>;
-  if (error) return <div className="error">{error}</div>;
+  if (error) return <div style={styles.error}>{error}</div>;
 
   return (
-    <div className="payment-container">
-      <h2>Payment Summary</h2>
-      <div className="summary">
-        <p>Total Amount Due: ${total?.toFixed(2)}</p>
-        <button onClick={handlePayment} disabled={!total}>
+    <div style={styles.paymentContainer}>
+      <h2 style={styles.header}>Payment Summary</h2>
+      <div style={styles.summary}>
+        <p style={styles.totalAmount}>Total Amount Due: ${total?.toFixed(2)}</p>
+        <button style={styles.button} onClick={handlePayment} disabled={!total}>
           Confirm Payment
         </button>
       </div>
@@ -97,5 +95,58 @@ function Payment() {
     </div>
   );
 }
+
+const styles = {
+  paymentContainer: {
+    maxWidth: '600px',
+    margin: '0 auto',
+    padding: '20px',
+    backgroundColor: '#f9f9f9',
+    borderRadius: '8px',
+    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+  },
+  header: {
+    fontSize: '24px',
+    fontWeight: 600,
+    marginBottom: '20px',
+    textAlign: 'center',
+  },
+  summary: {
+    backgroundColor: '#fff',
+    padding: '20px',
+    borderRadius: '8px',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+  },
+  totalAmount: {
+    fontSize: '18px',
+    marginBottom: '20px',
+    textAlign: 'center',
+  },
+  button: {
+    display: 'block',
+    width: '100%',
+    padding: '12px',
+    fontSize: '16px',
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
+  buttonDisabled: {
+    backgroundColor: '#ccc',
+    cursor: 'not-allowed',
+  },
+  buttonHover: {
+    backgroundColor: '#0056b3',
+  },
+  error: {
+    color: 'red',
+    fontSize: '16px',
+    textAlign: 'center',
+    marginTop: '20px',
+  }
+};
 
 export default Payment;
