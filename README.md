@@ -34,3 +34,5 @@ The backend should now be up and running on http://127.0.0.1:8000/
 
 The frontend should now be running and accessible at http://localhost:3000
 
+## Video display
+https://github.com/user-attachments/assets/f0b3caa4-7457-4bb7-b513-260b97d6e7f2
