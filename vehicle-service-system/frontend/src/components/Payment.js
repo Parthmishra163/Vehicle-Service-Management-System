@@ -76,7 +76,7 @@ function Payment() {
     <div style={styles.paymentContainer}>
       <h2 style={styles.header}>Payment Summary</h2>
       <div style={styles.summary}>
-        <p style={styles.totalAmount}>Total Amount Due: ${total?.toFixed(2)}</p>
+        <p style={styles.totalAmount}>Total Amount Due: Rs{total?.toFixed(2)}</p>
         <button style={styles.button} onClick={handlePayment} disabled={!total}>
           Confirm Payment
         </button>
